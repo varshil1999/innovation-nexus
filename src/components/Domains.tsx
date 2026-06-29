@@ -74,7 +74,7 @@ export function Domains() {
     <Section id="domains">
       <SectionHeader
         eyebrow="What you will work on"
-        title={<>Three problems. <em className="font-display italic text-primary">One week.</em> No easy answers.</>}
+        title={<>Three problems. <span className="text-primary font-semibold">One week.</span> No easy answers.</>}
         intro="Every participant chooses one domain. Each is a global crisis with local urgency — a challenge that exists at the scale of the world and inside the streets of your own city. Your solution can be a product, a policy, a design, a system, a framework, or a piece of original research."
       />
 
@@ -89,7 +89,7 @@ export function Domains() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, margin: "-60px" }}
               transition={{ duration: 0.6, delay: i * 0.08 }}
-              className={`glass overflow-hidden rounded-3xl transition-colors ${isOpen ? "border-primary/40" : ""}`}
+              className={`surface overflow-hidden rounded-3xl transition-colors ${isOpen ? "border-primary/40" : ""}`}
             >
               <button
                 onClick={() => setOpen(isOpen ? null : d.key)}

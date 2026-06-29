@@ -21,7 +21,7 @@ export function Partners() {
     <Section id="partners">
       <SectionHeader
         eyebrow="Organised by"
-        title={<>A programme backed by <em className="font-display italic text-primary">leading institutions.</em></>}
+        title={<>A programme backed by <span className="text-primary font-semibold">leading institutions.</span></>}
       />
 
       <div className="mt-12 grid gap-6 md:grid-cols-2">
@@ -30,7 +30,7 @@ export function Partners() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.6 }}
-          className="glass rounded-3xl p-8"
+          className="surface rounded-3xl p-8"
         >
           <div className="text-xs uppercase tracking-[0.18em] text-primary">Organised by</div>
           <h3 className="mt-2 font-display text-3xl text-foreground">The Innovation Story</h3>
@@ -44,7 +44,7 @@ export function Partners() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.6, delay: 0.1 }}
-          className="glass rounded-3xl p-8"
+          className="surface rounded-3xl p-8"
         >
           <div className="text-xs uppercase tracking-[0.18em] text-primary">In collaboration with</div>
           <h3 className="mt-2 font-display text-3xl text-foreground">Artpark IISc Bengaluru</h3>

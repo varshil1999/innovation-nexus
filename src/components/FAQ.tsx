@@ -21,7 +21,7 @@ export function FAQ() {
     <Section id="faq">
       <SectionHeader
         eyebrow="Questions?"
-        title={<>What you <em className="font-display italic text-primary">need to know.</em></>}
+        title={<>What you <span className="text-primary font-semibold">need to know.</span></>}
       />
 
       <div className="mt-12 divide-y divide-border overflow-hidden rounded-3xl border border-border bg-white/[0.02]">
