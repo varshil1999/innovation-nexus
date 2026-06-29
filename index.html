@@ -1,0 +1,897 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Now or Never Hack 2026 — TIS × Artpark IISc Bengaluru</title>
+  <meta name="description" content="A national hackathon for students from Grade 8 onwards across Mumbai. One week. Three domains: The Body, The Machine, The Planet. Build something the world actually needs." />
+  <meta property="og:title" content="Now or Never Hack 2026" />
+  <meta property="og:description" content="TIS × Artpark IISc present Now or Never — a national hackathon for young innovators. Register for ₹250." />
+  <meta property="og:type" content="website" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <style>
+    /* ---------- Tokens (The Innovation Story palette) ---------- */
+    :root {
+      --tis-blue-deep: oklch(0.30 0.14 264);
+      --tis-blue:      oklch(0.38 0.16 264);
+      --tis-gold:      oklch(0.82 0.16 85);
+      --tis-cyan:      oklch(0.80 0.13 210);
+      --bg:            oklch(0.32 0.15 264);
+      --fg:            oklch(0.98 0.005 250);
+      --muted:         oklch(0.86 0.02 250 / 0.78);
+      --border:        oklch(1 0 0 / 0.14);
+      --surface:       oklch(1 0 0 / 0.05);
+      --surface-br:    oklch(1 0 0 / 0.12);
+      --primary:       var(--tis-gold);
+      --primary-fg:    oklch(0.22 0.10 264);
+      --radius:        1rem;
+      --maxw:          80rem;
+    }
+    /* ---------- Reset ---------- */
+    *,*::before,*::after { box-sizing: border-box; }
+    html { scroll-behavior: smooth; -webkit-text-size-adjust: 100%; }
+    body {
+      margin: 0;
+      font-family: "Open Sans", ui-sans-serif, system-ui, sans-serif;
+      background: var(--bg);
+      color: var(--fg);
+      line-height: 1.55;
+      -webkit-font-smoothing: antialiased;
+    }
+    h1,h2,h3,h4 { margin: 0; letter-spacing: -0.01em; font-weight: 700; line-height: 1.1; }
+    p { margin: 0; }
+    a { color: inherit; text-decoration: none; }
+    ul { margin: 0; padding: 0; list-style: none; }
+    button { font: inherit; color: inherit; background: none; border: 0; cursor: pointer; }
+    img { max-width: 100%; display: block; }
+    ::selection { background: var(--tis-gold); color: var(--tis-blue-deep); }
+
+    /* ---------- Utilities ---------- */
+    .container { width: 100%; max-width: var(--maxw); margin: 0 auto; padding: 0 1.5rem; }
+    .section { padding: 5rem 1.5rem; scroll-margin-top: 6rem; position: relative; }
+    @media (min-width: 640px) { .section { padding: 8rem 1.5rem; } }
+    .section-inner { max-width: var(--maxw); margin: 0 auto; }
+    .eyebrow {
+      display: inline-flex; align-items: center; gap: 0.5rem;
+      font-size: 0.72rem; letter-spacing: 0.22em; text-transform: uppercase;
+      font-weight: 600; color: var(--tis-gold); margin-bottom: 1.25rem;
+    }
+    .eyebrow::before { content: ""; width: 6px; height: 6px; border-radius: 999px; background: var(--primary); display: inline-block; }
+    .section-title {
+      font-size: clamp(1.75rem, 4vw, 3rem);
+      max-width: 48rem;
+    }
+    .section-intro { margin-top: 1.5rem; max-width: 48rem; font-size: 1.0625rem; color: var(--muted); }
+    .accent { color: var(--primary); font-weight: 600; }
+    .surface {
+      background: var(--surface);
+      border: 1px solid var(--surface-br);
+      backdrop-filter: blur(8px);
+      border-radius: 1.5rem;
+    }
+    .pill {
+      display: inline-block; padding: 0.35rem 0.8rem; border-radius: 999px;
+      border: 1px solid var(--border); background: oklch(1 0 0 / 0.04);
+      font-size: 0.72rem; color: oklch(1 0 0 / 0.85);
+    }
+    .btn {
+      display: inline-flex; align-items: center; gap: 0.5rem;
+      padding: 1rem 1.75rem; border-radius: 999px;
+      background: var(--primary); color: var(--primary-fg);
+      font-weight: 600; font-size: 1rem;
+      box-shadow: 0 20px 60px -20px rgba(0,0,0,0.5);
+      transition: transform 0.2s ease;
+    }
+    .btn:hover { transform: scale(1.02); }
+    .btn .arrow { transition: transform 0.2s ease; }
+    .btn:hover .arrow { transform: translateX(3px); }
+    .btn-sm { padding: 0.55rem 1rem; font-size: 0.875rem; }
+
+    /* ---------- Reveal animation ---------- */
+    .reveal { opacity: 0; transform: translateY(24px); transition: opacity 0.7s cubic-bezier(.22,1,.36,1), transform 0.7s cubic-bezier(.22,1,.36,1); }
+    .reveal.visible { opacity: 1; transform: none; }
+
+    /* ---------- Nav ---------- */
+    .nav {
+      position: fixed; inset: 0 0 auto 0; z-index: 50;
+      transition: background 0.4s ease, border-color 0.4s ease, backdrop-filter 0.4s ease;
+      border-bottom: 1px solid transparent;
+    }
+    .nav.scrolled {
+      background: oklch(0.32 0.15 264 / 0.7);
+      backdrop-filter: blur(16px);
+      border-bottom-color: var(--border);
+    }
+    .nav-row {
+      max-width: var(--maxw); margin: 0 auto;
+      display: flex; align-items: center; justify-content: space-between;
+      padding: 1rem 1.5rem; gap: 1rem;
+    }
+    .brand { font-size: 0.875rem; font-weight: 500; display: flex; gap: 0.5rem; align-items: center; min-width: 0; }
+    .brand .x { color: var(--muted); }
+    .brand .sec { display: none; }
+    @media (min-width: 640px) { .brand .sec { display: inline; } }
+    .nav-links { display: none; align-items: center; gap: 0.25rem; }
+    @media (min-width: 768px) { .nav-links { display: flex; } }
+    .nav-links a {
+      padding: 0.5rem 1rem; border-radius: 999px; font-size: 0.875rem;
+      color: var(--muted); transition: background 0.2s, color 0.2s;
+    }
+    .nav-links a:hover { background: oklch(1 0 0 / 0.05); color: var(--fg); }
+    .nav-cta { margin-left: 0.5rem; }
+    .menu-btn { display: inline-flex; flex-direction: column; gap: 4px; padding: 0.5rem; }
+    @media (min-width: 768px) { .menu-btn { display: none; } }
+    .menu-btn span { width: 20px; height: 2px; background: var(--fg); display: block; }
+    .mobile-menu {
+      display: none; flex-direction: column; gap: 0.5rem;
+      padding: 1rem 1.5rem; background: oklch(0.32 0.15 264 / 0.95);
+      border-top: 1px solid var(--border);
+    }
+    .mobile-menu.open { display: flex; }
+    .mobile-menu a { padding: 0.6rem 0; }
+    .mobile-menu .btn { justify-content: center; margin-top: 0.5rem; }
+
+    /* ---------- Hero ---------- */
+    .hero { position: relative; overflow: hidden; padding: 9rem 1.5rem 6rem; text-align: center; }
+    @media (min-width: 640px) { .hero { padding: 11rem 1.5rem 8rem; } }
+    .hero-grid {
+      position: absolute; inset: 0; z-index: -1;
+      background-image:
+        linear-gradient(oklch(1 0 0 / 0.05) 1px, transparent 1px),
+        linear-gradient(90deg, oklch(1 0 0 / 0.05) 1px, transparent 1px);
+      background-size: 64px 64px;
+      -webkit-mask-image: radial-gradient(ellipse 60% 50% at 50% 20%, black, transparent 75%);
+              mask-image: radial-gradient(ellipse 60% 50% at 50% 20%, black, transparent 75%);
+    }
+    .hero-glow {
+      position: absolute; left: 50%; top: 0; z-index: -1;
+      width: 1200px; max-width: 100%; height: 600px;
+      transform: translateX(-50%); border-radius: 9999px;
+      filter: blur(80px); opacity: 0.6;
+      background: radial-gradient(ellipse at center, oklch(0.82 0.16 85 / 0.22), transparent 60%);
+    }
+    .hero-tag {
+      display: inline-flex; align-items: center; gap: 0.5rem;
+      border: 1px solid var(--border); background: oklch(1 0 0 / 0.05);
+      padding: 0.4rem 1rem; border-radius: 999px;
+      font-size: 0.72rem; letter-spacing: 0.2em; text-transform: uppercase;
+      color: var(--muted); backdrop-filter: blur(8px); margin-bottom: 2rem;
+    }
+    .hero-tag::before { content: ""; width: 6px; height: 6px; border-radius: 999px; background: var(--primary); box-shadow: 0 0 12px var(--tis-gold); }
+    .hero h1 { font-size: clamp(2.75rem, 8.5vw, 7rem); font-weight: 800; line-height: 1.02; }
+    .hero h1 .accent { font-weight: 800; }
+    .hero-lede { max-width: 36rem; margin: 2rem auto 0; font-size: 1.125rem; color: var(--muted); }
+    @media (min-width:640px){ .hero-lede { font-size: 1.25rem; } }
+    .hero-cta { margin-top: 2.5rem; display: flex; flex-direction: column; align-items: center; gap: 1.25rem; }
+    .hero-fineprint { max-width: 36rem; font-size: 0.875rem; color: var(--muted); }
+
+    /* ---------- Countdown ---------- */
+    .countdown {
+      display: inline-flex; flex-direction: column; gap: 0.75rem;
+      padding: 1rem 1.25rem; margin-top: 3rem;
+    }
+    .countdown-label { font-size: 0.72rem; letter-spacing: 0.2em; text-transform: uppercase; color: var(--muted); }
+    .countdown-row { display: flex; align-items: center; gap: 0.75rem; }
+    @media (min-width:640px){ .countdown-row { gap: 1.25rem; } }
+    .cd-cell { text-align: center; min-width: 56px; }
+    .cd-value { font-size: 2rem; line-height: 1; font-variant-numeric: tabular-nums; }
+    @media (min-width:640px){ .cd-value { font-size: 2.5rem; } }
+    .cd-label { margin-top: 0.35rem; font-size: 0.625rem; letter-spacing: 0.18em; text-transform: uppercase; color: var(--muted); }
+    .cd-sep { width: 1px; height: 32px; background: var(--border); }
+
+    /* ---------- Headings block ---------- */
+    .header-block { max-width: 48rem; }
+
+    /* ---------- Brief / About ---------- */
+    .brief-grid { display: grid; gap: 2.5rem; margin-top: 3rem; }
+    @media (min-width: 1024px) { .brief-grid { grid-template-columns: 3fr 2fr; } }
+    .brief-copy p { color: var(--muted); font-size: 1.0625rem; margin-bottom: 1.25rem; }
+    .brief-copy strong { color: var(--fg); font-weight: 600; }
+    .org-card { padding: 1.5rem; }
+    .org-card + .org-card { margin-top: 1rem; }
+    .org-card .label { font-size: 0.72rem; letter-spacing: 0.18em; text-transform: uppercase; color: var(--primary); }
+    .org-card h3 { font-size: 1.5rem; margin-top: 0.5rem; }
+    .org-card p { margin-top: 0.75rem; font-size: 0.9rem; color: var(--muted); }
+
+    /* ---------- Domains ---------- */
+    .domain-card { overflow: hidden; transition: border-color 0.3s; }
+    .domain-card.open { border-color: oklch(0.82 0.16 85 / 0.4); }
+    .domain-head { display: flex; gap: 1.5rem; padding: 1.5rem; text-align: left; width: 100%; align-items: flex-start; }
+    @media (min-width:640px){ .domain-head { padding: 2rem; } }
+    .domain-icon {
+      display: grid; place-items: center; width: 48px; height: 48px; flex-shrink: 0;
+      border-radius: 12px; background: oklch(0.82 0.16 85 / 0.15);
+      color: var(--primary); box-shadow: inset 0 0 0 1px oklch(0.82 0.16 85 / 0.3);
+      font-size: 1.25rem;
+    }
+    .domain-tag { font-size: 0.72rem; letter-spacing: 0.18em; text-transform: uppercase; color: var(--muted); }
+    .domain-title { font-size: 2rem; margin-top: 0.5rem; }
+    @media (min-width:640px){ .domain-title { font-size: 2.5rem; } }
+    .domain-blurb { margin-top: 0.75rem; color: var(--muted); max-width: 48rem; }
+    .domain-chev { margin-top: 0.5rem; color: var(--muted); transition: transform 0.3s, color 0.3s; flex-shrink: 0; }
+    .domain-card.open .domain-chev { transform: rotate(180deg); color: var(--primary); }
+    .domain-body { max-height: 0; overflow: hidden; transition: max-height 0.5s cubic-bezier(.22,1,.36,1); }
+    .domain-card.open .domain-body { max-height: 1200px; }
+    .domain-body-inner {
+      display: grid; gap: 2rem; border-top: 1px solid var(--border);
+      padding: 2rem 1.5rem;
+    }
+    @media (min-width:640px){ .domain-body-inner { padding: 2rem; } }
+    @media (min-width: 1024px) { .domain-body-inner { grid-template-columns: repeat(3, 1fr); } }
+    .domain-body .label { font-size: 0.72rem; letter-spacing: 0.18em; text-transform: uppercase; color: var(--primary); }
+    .starts { display: grid; gap: 0.5rem; margin-top: 0.75rem; grid-template-columns: 1fr; }
+    @media (min-width:640px){ .starts { grid-template-columns: 1fr 1fr; } }
+    .starts li { font-size: 0.875rem; display: flex; gap: 0.5rem; align-items: flex-start; color: oklch(1 0 0 / 0.9); }
+    .starts li::before { content: ""; width: 4px; height: 4px; margin-top: 8px; border-radius: 999px; background: var(--primary); flex-shrink: 0; }
+    .partner-wrap { margin-top: 0.75rem; display: flex; flex-wrap: wrap; gap: 0.5rem; }
+    .domains-list { display: grid; gap: 1rem; margin-top: 3.5rem; }
+
+    /* ---------- Two-col surface lists ---------- */
+    .two-col { display: grid; gap: 2rem; margin-top: 3rem; }
+    @media (min-width: 1024px) { .two-col { grid-template-columns: 1fr 1fr; } }
+    .two-col .surface { padding: 2rem; }
+    .two-col p.lead { font-size: 1.0625rem; color: oklch(1 0 0 / 0.9); }
+    .check-list { margin-top: 1.5rem; display: grid; gap: 0.75rem; }
+    .check-list li { display: flex; gap: 0.75rem; align-items: flex-start; color: var(--muted); font-size: 0.95rem; }
+    .check-list li::before { content: "✓"; color: var(--primary); font-weight: 700; margin-top: 1px; }
+
+    /* ---------- Process timeline ---------- */
+    .timeline { position: relative; margin-top: 4rem; }
+    .timeline::before {
+      content: ""; position: absolute; top: 8px; bottom: 8px; left: 27px; width: 1px;
+      background: linear-gradient(to bottom, oklch(0.82 0.16 85 / 0.6), oklch(0.82 0.16 85 / 0.2), transparent);
+    }
+    @media (min-width: 768px) { .timeline::before { left: 50%; } }
+    .timeline-list { display: grid; gap: 1.5rem; }
+    @media (min-width: 768px) { .timeline-list { gap: 2.5rem; } }
+    .timeline-item { position: relative; display: grid; gap: 1.5rem; padding-left: 64px; }
+    @media (min-width: 768px) {
+      .timeline-item { grid-template-columns: 1fr 1fr; gap: 3rem; padding-left: 0; }
+      .timeline-item.right .timeline-card { grid-column: 2; }
+      .timeline-item.right .timeline-spacer { grid-column: 1; }
+      .timeline-item.left .timeline-card-wrap { display: flex; justify-content: flex-end; }
+    }
+    .timeline-card { padding: 1.5rem; max-width: 28rem; }
+    .timeline-step { font-size: 0.72rem; letter-spacing: 0.18em; text-transform: uppercase; color: var(--primary); }
+    .timeline-card h3 { font-size: 1.5rem; margin-top: 0.5rem; }
+    .timeline-card p { font-size: 0.9rem; color: var(--muted); margin-top: 0.5rem; }
+    .timeline-node {
+      position: absolute; top: 8px; left: 0;
+      display: grid; place-items: center; width: 56px; height: 56px; border-radius: 999px;
+      background: var(--bg); border: 1px solid oklch(0.82 0.16 85 / 0.4); color: var(--primary);
+      box-shadow: 0 20px 60px -20px rgba(0,0,0,0.5);
+      font-size: 1.2rem;
+    }
+    @media (min-width: 768px) { .timeline-node { left: 50%; transform: translateX(-50%); } }
+
+    /* ---------- Awards ---------- */
+    .awards-grid { display: grid; gap: 1.5rem; margin-top: 3.5rem; }
+    @media (min-width: 1024px) { .awards-grid { grid-template-columns: repeat(3, 1fr); } }
+    .award-card { position: relative; overflow: hidden; padding: 2rem; }
+    .award-card.featured { box-shadow: 0 20px 60px -20px rgba(0,0,0,0.5); }
+    @media (min-width: 1024px) { .award-card.featured { transform: scale(1.03); } }
+    .award-card.featured::before {
+      content: ""; position: absolute; top: 0; left: 0; right: 0; height: 1px;
+      background: oklch(0.82 0.16 85 / 0.7);
+    }
+    .medal { font-size: 3rem; line-height: 1; }
+    .award-place { margin-top: 1rem; font-size: 1.25rem; font-weight: 600; }
+    .award-amount { margin-top: 0.75rem; font-size: 3rem; font-weight: 800; letter-spacing: -0.02em; color: var(--primary); }
+    .award-perks { margin-top: 1.5rem; display: grid; gap: 0.5rem; }
+    .award-perks li { display: flex; gap: 0.5rem; align-items: flex-start; font-size: 0.875rem; color: var(--muted); }
+    .award-perks li::before { content: "★"; color: var(--primary); margin-top: 1px; }
+    .award-note {
+      margin-top: 2.5rem; padding: 1.5rem; border-radius: 1rem; text-align: center; font-size: 0.9rem;
+      background: oklch(0.82 0.16 85 / 0.05); border: 1px solid oklch(0.82 0.16 85 / 0.3);
+      color: oklch(1 0 0 / 0.9);
+    }
+    .criteria-grid { display: grid; gap: 1rem; margin-top: 3rem; }
+    @media (min-width: 768px) { .criteria-grid { grid-template-columns: 1fr 1fr; } }
+    @media (min-width: 1024px) { .criteria-grid { grid-template-columns: repeat(3, 1fr); } }
+    .criteria-card { padding: 1.5rem; }
+    .criteria-num { font-size: 1.75rem; color: var(--primary); font-weight: 700; }
+    .criteria-card h4 { font-size: 1.125rem; margin-top: 0.75rem; font-weight: 500; }
+    .criteria-card p { font-size: 0.875rem; color: var(--muted); margin-top: 0.5rem; }
+    #judging { margin-top: 6rem; scroll-margin-top: 6rem; }
+
+    /* ---------- FAQ ---------- */
+    .faq {
+      margin-top: 3rem; border: 1px solid var(--border);
+      border-radius: 1.5rem; overflow: hidden; background: oklch(1 0 0 / 0.02);
+    }
+    .faq-item + .faq-item { border-top: 1px solid var(--border); }
+    .faq-q {
+      width: 100%; display: flex; justify-content: space-between; align-items: center;
+      gap: 1.5rem; padding: 1.5rem; text-align: left;
+      transition: background 0.2s;
+    }
+    @media (min-width:640px){ .faq-q { padding: 1.5rem 2rem; } }
+    .faq-q:hover { background: oklch(1 0 0 / 0.03); }
+    .faq-q-text { font-size: 1.125rem; font-weight: 600; }
+    @media (min-width:640px){ .faq-q-text { font-size: 1.25rem; } }
+    .faq-plus { color: var(--primary); transition: transform 0.3s; font-size: 1.25rem; flex-shrink: 0; line-height: 1; }
+    .faq-item.open .faq-plus { transform: rotate(45deg); }
+    .faq-a { max-height: 0; overflow: hidden; transition: max-height 0.4s cubic-bezier(.22,1,.36,1); }
+    .faq-item.open .faq-a { max-height: 600px; }
+    .faq-a-inner { padding: 0 1.5rem 1.75rem; color: var(--muted); max-width: 48rem; }
+    @media (min-width:640px){ .faq-a-inner { padding: 0 2rem 1.75rem; } }
+
+    /* ---------- Partners ---------- */
+    .partners-orgs { display: grid; gap: 1.5rem; margin-top: 3rem; }
+    @media (min-width: 768px) { .partners-orgs { grid-template-columns: 1fr 1fr; } }
+    .partners-orgs .surface { padding: 2rem; }
+    .partner-groups-label { margin-top: 4rem; font-size: 0.72rem; letter-spacing: 0.2em; text-transform: uppercase; color: var(--muted); }
+    .partner-groups { display: grid; gap: 1.5rem; margin-top: 1.5rem; }
+    @media (min-width: 1024px) { .partner-groups { grid-template-columns: repeat(3, 1fr); } }
+    .partner-group {
+      padding: 1.5rem; border: 1px solid var(--border); border-radius: 1.5rem;
+      background: oklch(1 0 0 / 0.02);
+    }
+    .partner-group h4 { font-size: 1.25rem; }
+    .partner-group .partner-wrap { margin-top: 1rem; }
+
+    /* ---------- Final CTA ---------- */
+    .final-cta-card {
+      position: relative; overflow: hidden; border: 1px solid var(--border);
+      border-radius: 2rem; padding: 2.5rem; text-align: center;
+      background:
+        radial-gradient(ellipse at 50% 0%, oklch(0.82 0.16 85 / 0.22), transparent 60%),
+        linear-gradient(180deg, oklch(1 0 0 / 0.05), oklch(1 0 0 / 0.02));
+    }
+    @media (min-width:640px){ .final-cta-card { padding: 5rem; } }
+    .final-cta-card .hero-grid { opacity: 0.5; }
+    .final-cta-card .eyebrow { justify-content: center; }
+    .final-cta-card h2 {
+      max-width: 48rem; margin: 1.5rem auto 0;
+      font-size: clamp(2.25rem, 6vw, 4.5rem); line-height: 1.05;
+    }
+    .final-cta-card h2 em { font-style: italic; color: var(--primary); font-weight: 700; }
+    .final-cta-card .lede { margin: 1.5rem auto 0; max-width: 32rem; font-size: 1.125rem; color: var(--muted); }
+    .final-cta-actions { margin-top: 2.5rem; display: flex; flex-direction: column; align-items: center; gap: 1.25rem; }
+
+    /* ---------- Footer ---------- */
+    footer { border-top: 1px solid var(--border); padding: 3.5rem 1.5rem; }
+    .footer-row {
+      max-width: var(--maxw); margin: 0 auto;
+      display: flex; flex-direction: column; gap: 2.5rem;
+    }
+    @media (min-width: 640px) { .footer-row { flex-direction: row; justify-content: space-between; align-items: flex-end; } }
+    .footer-label { font-size: 0.72rem; letter-spacing: 0.22em; text-transform: uppercase; color: var(--muted); }
+    .footer-title { margin-top: 0.75rem; font-size: 1.75rem; }
+    @media (min-width:640px){ .footer-title { font-size: 2rem; } }
+    .footer-blurb { margin-top: 0.75rem; max-width: 28rem; font-size: 0.875rem; color: var(--muted); }
+    .footer-links { display: flex; flex-direction: column; gap: 0.75rem; font-size: 0.875rem; }
+    .footer-links a { color: var(--muted); display: inline-flex; align-items: center; gap: 0.5rem; transition: color 0.2s; }
+    .footer-links a.primary { color: var(--fg); }
+    .footer-links a:hover { color: var(--fg); }
+    .footer-bottom { max-width: var(--maxw); margin: 2.5rem auto 0; padding-top: 1.5rem; border-top: 1px solid var(--border); font-size: 0.75rem; color: var(--muted); }
+  </style>
+</head>
+<body>
+
+  <!-- =================== NAV =================== -->
+  <header class="nav" id="nav">
+    <div class="nav-row">
+      <a href="#top" class="brand">
+        <span>The Innovation Story</span>
+        <span class="x">×</span>
+        <span class="sec">Artpark IISc Bengaluru</span>
+      </a>
+      <nav class="nav-links" aria-label="Primary">
+        <a href="#about">About</a>
+        <a href="#domains">Domains</a>
+        <a href="#process">Process</a>
+        <a href="#awards">Awards</a>
+        <a href="#faq">FAQ</a>
+        <a class="btn btn-sm nav-cta" href="#register">Register</a>
+      </nav>
+      <button class="menu-btn" id="menuBtn" aria-label="Toggle menu" aria-expanded="false">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+    <div class="mobile-menu" id="mobileMenu">
+      <a href="#about">About</a>
+      <a href="#domains">Domains</a>
+      <a href="#process">Process</a>
+      <a href="#awards">Awards</a>
+      <a href="#faq">FAQ</a>
+      <a class="btn" href="#register">Register — ₹250</a>
+    </div>
+  </header>
+
+  <main>
+
+  <!-- =================== HERO =================== -->
+  <section id="top" class="hero">
+    <div class="hero-grid" aria-hidden="true"></div>
+    <div class="hero-glow" aria-hidden="true"></div>
+    <div class="container">
+      <div class="hero-tag">TIS × Artpark IISc Present</div>
+      <h1>Now or Never <span class="accent">Hack</span></h1>
+      <p class="hero-lede">
+        The problems that define our era — in health, in technology, in the natural world — demand attention now.
+        A national individual hackathon for students ready to think at the scale of the world's most urgent
+        challenges, and build something that matters.
+      </p>
+      <div class="hero-cta">
+        <a class="btn" id="registerBtn" href="#register">
+          Register Now — ₹250 <span class="arrow">→</span>
+        </a>
+        <p class="hero-fineprint">
+          Open to students from Grade 8 onwards across Mumbai · Individual participation · Joint certificates
+          from TIS and Artpark IISc Bengaluru
+        </p>
+      </div>
+
+      <div class="surface countdown" role="timer" aria-live="polite">
+        <div class="countdown-label">Registration closes in</div>
+        <div class="countdown-row" id="countdown">
+          <div class="cd-cell"><div class="cd-value" data-cd="days">00</div><div class="cd-label">Days</div></div>
+          <div class="cd-sep"></div>
+          <div class="cd-cell"><div class="cd-value" data-cd="hours">00</div><div class="cd-label">Hours</div></div>
+          <div class="cd-sep"></div>
+          <div class="cd-cell"><div class="cd-value" data-cd="mins">00</div><div class="cd-label">Minutes</div></div>
+          <div class="cd-sep"></div>
+          <div class="cd-cell"><div class="cd-value" data-cd="secs">00</div><div class="cd-label">Seconds</div></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- =================== ABOUT =================== -->
+  <section id="about" class="section">
+    <div class="section-inner">
+      <div class="header-block reveal">
+        <div class="eyebrow">What is this</div>
+        <h2 class="section-title">One week to build <span class="accent">something the world actually needs.</span></h2>
+      </div>
+
+      <div class="brief-grid">
+        <div class="brief-copy reveal">
+          <p>
+            Now or Never is a hackathon organised by <strong>The Innovation Story</strong> in collaboration with
+            <strong>Artpark IISc Bengaluru</strong> — one of India's most advanced AI and robotics research institutions.
+            It is built for students who believe the most pressing problems of our time demand more than a classroom discussion.
+          </p>
+          <p>
+            One week. A domain you choose. A problem you define. A solution you build from scratch — with access to
+            curated research, expert-led sessions, and a process designed by people who work on these challenges
+            professionally. At the end of it, you present to a jury of researchers, technologists, and innovators.
+          </p>
+          <p><strong>Whether you write code, design systems, or construct arguments — the jury measures the rigour of your thinking, not the tools you used.</strong></p>
+        </div>
+        <div>
+          <div class="surface org-card reveal">
+            <div class="label">Organiser</div>
+            <h3>The Innovation Story</h3>
+            <p>A Mumbai-based innovation education organisation working with India's top schools to build the next generation of problem-solvers, researchers, and entrepreneurs.</p>
+          </div>
+          <div class="surface org-card reveal">
+            <div class="label">In collaboration with</div>
+            <h3>Artpark IISc Bengaluru</h3>
+            <p>A not-for-profit founded by the Indian Institute of Science, Bengaluru. Driving translational research in AI, robotics, and autonomous systems — building technology that solves real problems at scale.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- =================== DOMAINS =================== -->
+  <section id="domains" class="section">
+    <div class="section-inner">
+      <div class="header-block reveal">
+        <div class="eyebrow">What you will work on</div>
+        <h2 class="section-title">Three problems. <span class="accent">One week.</span> No easy answers.</h2>
+        <p class="section-intro">Every participant chooses one domain. Each is a global crisis with local urgency — a challenge that exists at the scale of the world and inside the streets of your own city. Your solution can be a product, a policy, a design, a system, a framework, or a piece of original research.</p>
+      </div>
+
+      <div class="domains-list" id="domainsList">
+        <!-- Domain cards injected by JS -->
+      </div>
+    </div>
+  </section>
+
+  <!-- =================== WHO =================== -->
+  <section id="who" class="section">
+    <div class="section-inner">
+      <div class="header-block reveal">
+        <div class="eyebrow">Who this is for</div>
+        <h2 class="section-title">Built for the <span class="accent">curious</span>, the rigorous, and the ready.</h2>
+      </div>
+      <div class="two-col">
+        <div class="surface reveal">
+          <p class="lead">Now or Never is open to all innovators — whether your tools are code, research, design, policy, or argument. What unites every participant is a willingness to engage seriously with a problem that matters.</p>
+          <ul class="check-list">
+            <li>Open to all students from Grade 8 and above across Mumbai</li>
+            <li>Individual participation only</li>
+            <li>Every domain has room for technology, research, design, and policy</li>
+          </ul>
+        </div>
+        <div class="surface reveal">
+          <p class="lead">A structured programme backed by one of India's foremost research institutions.</p>
+          <ul class="check-list">
+            <li>Joint certificate from TIS and Artpark IISc — every student who submits</li>
+            <li>Curated reading material and domain briefs before the week begins</li>
+            <li>Expert-led onboarding webinar with TIS and Artpark IISc researchers</li>
+            <li>In-person finals evaluated by a professional jury</li>
+            <li>Internship opportunity for the top 2 finalists in Grade 9 and above</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- =================== PROCESS =================== -->
+  <section id="process" class="section">
+    <div class="section-inner">
+      <div class="header-block reveal">
+        <div class="eyebrow">The process</div>
+        <h2 class="section-title">From curious to <span class="accent">consequential.</span></h2>
+      </div>
+
+      <ol class="timeline">
+        <div class="timeline-list" id="timelineList"></div>
+      </ol>
+    </div>
+  </section>
+
+  <!-- =================== AWARDS =================== -->
+  <section id="awards" class="section">
+    <div class="section-inner">
+      <div class="header-block reveal">
+        <div class="eyebrow">Recognition</div>
+        <h2 class="section-title">Recognition that <span class="accent">goes beyond.</span></h2>
+        <p class="section-intro">Cash prizes. Internship opportunities. Certificates.</p>
+      </div>
+
+      <div class="awards-grid">
+        <div class="surface award-card reveal">
+          <div class="medal">🥈</div>
+          <h3 class="award-place">Second Place</h3>
+          <div class="award-amount">₹20,000</div>
+          <ul class="award-perks">
+            <li>Certificate from TIS &amp; Artpark IISc</li>
+            <li>Internship with Artpark IISc and industry partners (Grade 9+)</li>
+          </ul>
+        </div>
+        <div class="surface award-card featured reveal">
+          <div class="medal">🥇</div>
+          <h3 class="award-place">First Place</h3>
+          <div class="award-amount">₹25,000</div>
+          <ul class="award-perks">
+            <li>Certificate from TIS &amp; Artpark IISc</li>
+            <li>Internship with Artpark IISc and industry partners (Grade 9+)</li>
+          </ul>
+        </div>
+        <div class="surface award-card reveal">
+          <div class="medal">🥉</div>
+          <h3 class="award-place">Third Place</h3>
+          <div class="award-amount">₹10,000</div>
+          <ul class="award-perks">
+            <li>Certificate from TIS &amp; Artpark IISc</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="award-note reveal">
+        Every participant who submits receives a joint certificate from <strong>The Innovation Story</strong> and <strong>Artpark IISc Bengaluru</strong>.
+      </div>
+
+      <div id="judging">
+        <div class="header-block reveal">
+          <div class="eyebrow">How your work is evaluated</div>
+          <h2 class="section-title">The criteria your submissions are <span class="accent">judged on.</span></h2>
+          <p class="section-intro">The jury includes researchers, technologists, and practitioners from our domain partner organisations. They look for evidence that you understood the problem deeply, thought about it originally, and communicated with clarity and conviction.</p>
+        </div>
+
+        <div class="criteria-grid" id="criteriaGrid"></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- =================== FAQ =================== -->
+  <section id="faq" class="section">
+    <div class="section-inner">
+      <div class="header-block reveal">
+        <div class="eyebrow">Questions?</div>
+        <h2 class="section-title">What you <span class="accent">need to know.</span></h2>
+      </div>
+      <div class="faq" id="faqList"></div>
+    </div>
+  </section>
+
+  <!-- =================== PARTNERS =================== -->
+  <section id="partners" class="section">
+    <div class="section-inner">
+      <div class="header-block reveal">
+        <div class="eyebrow">Organised by</div>
+        <h2 class="section-title">A programme backed by <span class="accent">leading institutions.</span></h2>
+      </div>
+
+      <div class="partners-orgs">
+        <div class="surface reveal">
+          <div class="label" style="font-size: 0.72rem; letter-spacing: 0.18em; text-transform: uppercase; color: var(--primary);">Organised by</div>
+          <h3 style="font-size: 1.875rem; margin-top: 0.5rem;">The Innovation Story</h3>
+          <p style="margin-top: 0.75rem; font-size: 0.9rem; color: var(--muted);">A Mumbai-based innovation education organisation working with India's top schools to build the next generation of problem-solvers, researchers, and entrepreneurs.</p>
+        </div>
+        <div class="surface reveal">
+          <div class="label" style="font-size: 0.72rem; letter-spacing: 0.18em; text-transform: uppercase; color: var(--primary);">In collaboration with</div>
+          <h3 style="font-size: 1.875rem; margin-top: 0.5rem;">Artpark IISc Bengaluru</h3>
+          <p style="margin-top: 0.75rem; font-size: 0.9rem; color: var(--muted);">AI &amp; Robotics Technology Park, founded by the Indian Institute of Science. Driving translational research in AI, robotics, and autonomous systems for societal impact.</p>
+        </div>
+      </div>
+
+      <div class="partner-groups-label">Domain partners</div>
+      <div class="partner-groups" id="partnerGroups"></div>
+    </div>
+  </section>
+
+  <!-- =================== FINAL CTA =================== -->
+  <section id="register" class="section" style="padding-top: 8rem; padding-bottom: 10rem;">
+    <div class="section-inner">
+      <div class="final-cta-card reveal">
+        <div class="hero-grid" aria-hidden="true"></div>
+        <div class="eyebrow" style="margin-bottom: 0;">Now or Never Hack</div>
+        <h2>The registration window is <em>open.</em></h2>
+        <p class="lede">Limited seats. The problems are not waiting. Neither should you.</p>
+        <div class="final-cta-actions">
+          <a class="btn" href="#" data-register>
+            Register Now — ₹250 <span class="arrow">→</span>
+          </a>
+          <p class="hero-fineprint">
+            Open to all students from Grade 8 and above across Mumbai · Individual participation · Joint
+            certificate from The Innovation Story and Artpark IISc Bengaluru
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  </main>
+
+  <!-- =================== FOOTER =================== -->
+  <footer>
+    <div class="footer-row">
+      <div>
+        <div class="footer-label">The Innovation Story × Artpark IISc Bengaluru</div>
+        <div class="footer-title">Now or Never Hack 2026</div>
+        <p class="footer-blurb">For queries regarding participation, write to us.</p>
+      </div>
+      <div class="footer-links">
+        <a href="mailto:info@theinnovationstory.com" class="primary">✉ info@theinnovationstory.com</a>
+        <a href="https://instagram.com/theinnovationstory" target="_blank" rel="noreferrer">Instagram</a>
+        <a href="https://linkedin.com/company/theinnovationstory" target="_blank" rel="noreferrer">LinkedIn</a>
+        <a href="https://theinnovationstory.com" target="_blank" rel="noreferrer">theinnovationstory.com</a>
+      </div>
+    </div>
+    <div class="footer-bottom">© <span id="year"></span> The Innovation Story. All rights reserved.</div>
+  </footer>
+
+  <script>
+    // ============== Config ==============
+    const REGISTER_URL = "https://example.com";
+    const REGISTRATION_CLOSE_DATE = "2026-03-15T23:59:59+05:30";
+
+    // Wire up all register buttons/links
+    document.querySelectorAll('[data-register], #registerBtn, .nav-cta, .mobile-menu .btn').forEach(el => {
+      // keep #register anchors that don't have data-register (they scroll to section)
+      if (el.getAttribute('href') === '#register') return;
+    });
+    document.querySelectorAll('[data-register]').forEach(el => {
+      el.setAttribute('href', REGISTER_URL);
+      el.setAttribute('target', '_blank');
+      el.setAttribute('rel', 'noreferrer');
+    });
+
+    // ============== Year ==============
+    document.getElementById('year').textContent = new Date().getFullYear();
+
+    // ============== Sticky Nav ==============
+    const nav = document.getElementById('nav');
+    const onScroll = () => nav.classList.toggle('scrolled', window.scrollY > 12);
+    window.addEventListener('scroll', onScroll, { passive: true });
+    onScroll();
+
+    // ============== Mobile menu ==============
+    const menuBtn = document.getElementById('menuBtn');
+    const mobileMenu = document.getElementById('mobileMenu');
+    menuBtn.addEventListener('click', () => {
+      const open = mobileMenu.classList.toggle('open');
+      menuBtn.setAttribute('aria-expanded', String(open));
+    });
+    mobileMenu.querySelectorAll('a').forEach(a => a.addEventListener('click', () => {
+      mobileMenu.classList.remove('open');
+      menuBtn.setAttribute('aria-expanded', 'false');
+    }));
+
+    // ============== Countdown ==============
+    const target = new Date(REGISTRATION_CLOSE_DATE).getTime();
+    const cdEls = {
+      days: document.querySelector('[data-cd="days"]'),
+      hours: document.querySelector('[data-cd="hours"]'),
+      mins: document.querySelector('[data-cd="mins"]'),
+      secs: document.querySelector('[data-cd="secs"]'),
+    };
+    const pad = n => String(n).padStart(2, '0');
+    function tick() {
+      const ms = Math.max(0, target - Date.now());
+      cdEls.days.textContent  = pad(Math.floor(ms / 86400000));
+      cdEls.hours.textContent = pad(Math.floor((ms % 86400000) / 3600000));
+      cdEls.mins.textContent  = pad(Math.floor((ms % 3600000) / 60000));
+      cdEls.secs.textContent  = pad(Math.floor((ms % 60000) / 1000));
+    }
+    tick();
+    setInterval(tick, 1000);
+
+    // ============== Data ==============
+    const domains = [
+      { key: "body", icon: "❤", title: "The Body",
+        tag: "Healthcare · AI · Mental Health · Assistive Tech",
+        blurb: "Healthcare systems everywhere are under strain. The tools to fix them — AI, data, smarter design, better policy — already exist. What's missing is the intelligence to deploy them where they're needed most.",
+        risk: "If we don't act: access to quality care determined by geography and income, preventable diseases diagnosed too late, mental health invisible in every system designed to support it.",
+        starts: ["Early detection and diagnosis","Mental health access","Rural and last-mile healthcare","AI-assisted clinical tools","Assistive technology","Caregiver support","Public health communication"],
+        partners: ["J&J MedTech","Philips Healthcare","WHO","Gates Foundation","DeepMind Health","Siemens Healthineers","Qure.ai","Niramai","Tricog Health","Apollo Hospitals"] },
+      { key: "machine", icon: "⚙", title: "The Machine",
+        tag: "AI · Ethics · Future of Work · Autonomous Systems",
+        blurb: "We are the first generation to live alongside machines that learn, decide, and act. The systems being built today will shape education, employment, justice, and governance for decades. Someone has to design them well.",
+        risk: "If we don't act: automated decisions with no accountability. A generation fluent in using AI but with no hand in shaping it. Systems optimised for efficiency that quietly discard the people they were built to serve.",
+        starts: ["Human-centred AI design","Algorithmic accountability","AI literacy and education","Bias in automated systems","The future of work","Autonomous systems in public infrastructure","Ethical frameworks for machine intelligence"],
+        partners: ["Google DeepMind","IBM Research","OpenAI","Sarvam AI","Fractal Analytics","Microsoft Research India","NASSCOM","iSpirt","Wipro AI"] },
+      { key: "planet", icon: "🌱", title: "The Planet",
+        tag: "Climate · Sustainability · Water · Agriculture",
+        blurb: "Every system that sustains life is a loop — something goes in, something comes out, something returns. Most of those loops are broken. We extract without replenishing. We consume without accounting.",
+        risk: "If we don't act: not a distant catastrophe — a slow degradation of the conditions that make ordinary life possible. Clean water, stable food, breathable air. Felt most by those who contributed least to the problem.",
+        starts: ["Circular economy design","Water systems","Food waste and distribution","Urban heat and climate adaptation","Clean energy access","Environmental policy","Sustainable agriculture","Climate communication"],
+        partners: ["WWF","WRI","Schneider Electric","UNEP","Breakthrough Energy","ReNew Power","Ather Energy","Tata Power","Mahindra Sustainability"] }
+    ];
+
+    const steps = [
+      { icon: "📝", title: "Register", body: "Fill in the registration form. Fee: ₹250." },
+      { icon: "📚", title: "Access the Platform", body: "Unlock curated research, domain briefs, and context documents prepared by TIS and Artpark IISc researchers." },
+      { icon: "🎤", title: "Attend the Webinar", body: "A live briefing with experts. Understand your domain. Understand the standard. Get ready." },
+      { icon: "🔨", title: "Build", body: "Seven days to identify a problem that matters and develop your solution — a website, an app, a software tool, or a working prototype." },
+      { icon: "📤", title: "Submit", body: "A project brief and a video submission proposing the problem and the solution you are putting forward." },
+      { icon: "🎙", title: "Present", body: "Shortlisted finalists present in person before a jury of researchers, technologists, and industry leaders." },
+      { icon: "🏆", title: "Winners Declared", body: "Prizes and opportunities awarded. Every participant who submits receives a joint certificate." }
+    ];
+
+    const criteria = [
+      { title: "Depth of Insight", body: "Did you go beyond the surface? Evidence of research, original thinking, and genuine engagement with the complexity of the domain." },
+      { title: "Originality", body: "A genuinely new way of thinking about the challenge — approaching a problem from an angle that creates real value." },
+      { title: "Feasibility", body: "Could this actually work? Grounded in reality, with a clear understanding of constraints, costs, and risks." },
+      { title: "Product", body: "Evidence of the work — a prototype, demo, designed system, or tested model. The idea is taken beyond thinking and into making." },
+      { title: "Communication", body: "Rigour without communication is invisible. Both submission and presentation are evaluated for clarity and conviction." }
+    ];
+
+    const faqs = [
+      { q: "Who can participate?", a: "Now or Never Hack is open to all students from Grade 8 and above across Mumbai. There are no school board restrictions — if you are ready to do serious work, you are welcome here." },
+      { q: "Do I need to know how to code?", a: "No. Now or Never is built for all kinds of innovators — whether your tools are code, research, design, policy, or argument. The jury evaluates the rigour of your thinking, not the medium you work in." },
+      { q: "What does a strong submission look like?", a: "One that goes beyond the surface. A strong submission demonstrates a deep understanding of the problem, proposes a solution that is original and grounded in reality, shows evidence of the work — a prototype, a demo, a designed system — and communicates it with clarity and conviction." },
+      { q: "What happens after I register?", a: "You receive immediate access to the Now or Never platform — curated reading material, domain briefs, and context documents prepared by researchers at TIS and Artpark IISc. You will also receive the date and link for the onboarding webinar." },
+      { q: "What is the submission format?", a: "A project brief and a video submission — proposing the problem you have identified and the solution you are putting forward. It could be a website, an app, a software tool, or a robot prototype. Full guidelines are available on the platform after registration." },
+      { q: "Who are the judges?", a: "The jury includes researchers and practitioners from The Innovation Story, Artpark IISc Bengaluru, and our domain partner organisations across The Body, The Machine, and The Planet. The full jury will be announced closer to the event." },
+      { q: "Where and when is the in-person presentation?", a: "The final presentations will be held in Mumbai. Venue and date details will be shared with shortlisted finalists after the submission deadline." },
+      { q: "When are the winners announced?", a: "Winners are announced at the conclusion of the in-person presentation day. Prizes, internship opportunities, and certificates are awarded on the same day." },
+      { q: "Can I change my domain after registering?", a: "Yes — you can change your domain any time before the submission deadline. Your final submission determines which domain you are evaluated under." }
+    ];
+
+    const partnerGroups = [
+      { title: "The Body", partners: ["Johnson & Johnson MedTech","Philips Healthcare","WHO","Gates Foundation","DeepMind Health","Siemens Healthineers","Qure.ai","Niramai Health Analytix","Tricog Health","Apollo Hospitals"] },
+      { title: "The Machine", partners: ["Google DeepMind","IBM Research","OpenAI","Sarvam AI","Fractal Analytics","Microsoft Research India","NASSCOM","iSpirt","Wipro AI"] },
+      { title: "The Planet", partners: ["WWF","WRI","Schneider Electric","UNEP","Breakthrough Energy","ReNew Power","Ather Energy","Tata Power","Mahindra Sustainability"] }
+    ];
+
+    // ============== Renderers ==============
+    const esc = s => String(s).replace(/[&<>"']/g, c => ({ "&":"&amp;","<":"&lt;",">":"&gt;","\"":"&quot;","'":"&#39;" }[c]));
+
+    // Domains (expandable)
+    const domainsList = document.getElementById('domainsList');
+    domainsList.innerHTML = domains.map((d, i) => `
+      <div class="surface domain-card reveal ${i===0?'open':''}" data-key="${d.key}">
+        <button class="domain-head" aria-expanded="${i===0}">
+          <div class="domain-icon" aria-hidden="true">${d.icon}</div>
+          <div style="flex:1; min-width:0;">
+            <div class="domain-tag">${esc(d.tag)}</div>
+            <h3 class="domain-title">${esc(d.title)}</h3>
+            <p class="domain-blurb">${esc(d.blurb)}</p>
+          </div>
+          <div class="domain-chev" aria-hidden="true">▾</div>
+        </button>
+        <div class="domain-body">
+          <div class="domain-body-inner">
+            <div>
+              <div class="label">If we don't act</div>
+              <p style="margin-top:0.75rem; font-size:0.875rem; color: var(--muted);">${esc(d.risk)}</p>
+            </div>
+            <div>
+              <div class="label">Where you might begin</div>
+              <ul class="starts">${d.starts.map(s => `<li>${esc(s)}</li>`).join('')}</ul>
+            </div>
+            <div>
+              <div class="label">Industry partners</div>
+              <div class="partner-wrap">${d.partners.map(p => `<span class="pill">${esc(p)}</span>`).join('')}</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    `).join('');
+
+    domainsList.querySelectorAll('.domain-card').forEach(card => {
+      card.querySelector('.domain-head').addEventListener('click', () => {
+        const wasOpen = card.classList.contains('open');
+        domainsList.querySelectorAll('.domain-card').forEach(c => {
+          c.classList.remove('open');
+          c.querySelector('.domain-head').setAttribute('aria-expanded', 'false');
+        });
+        if (!wasOpen) {
+          card.classList.add('open');
+          card.querySelector('.domain-head').setAttribute('aria-expanded', 'true');
+        }
+      });
+    });
+
+    // Timeline
+    document.getElementById('timelineList').innerHTML = steps.map((s, i) => `
+      <li class="timeline-item reveal ${i%2===1?'right':'left'}">
+        <div class="timeline-card-wrap">
+          <div class="surface timeline-card">
+            <div class="timeline-step">Step ${String(i+1).padStart(2,'0')}</div>
+            <h3>${esc(s.title)}</h3>
+            <p>${esc(s.body)}</p>
+          </div>
+        </div>
+        <div class="timeline-spacer"></div>
+        <div class="timeline-node" aria-hidden="true">${s.icon}</div>
+      </li>
+    `).join('');
+
+    // Criteria
+    document.getElementById('criteriaGrid').innerHTML = criteria.map((c, i) => `
+      <div class="surface criteria-card reveal">
+        <div class="criteria-num">0${i+1}</div>
+        <h4>${esc(c.title)}</h4>
+        <p>${esc(c.body)}</p>
+      </div>
+    `).join('');
+
+    // FAQ
+    const faqList = document.getElementById('faqList');
+    faqList.innerHTML = faqs.map((f, i) => `
+      <div class="faq-item ${i===0?'open':''}">
+        <button class="faq-q" aria-expanded="${i===0}">
+          <span class="faq-q-text">${esc(f.q)}</span>
+          <span class="faq-plus" aria-hidden="true">+</span>
+        </button>
+        <div class="faq-a"><div class="faq-a-inner">${esc(f.a)}</div></div>
+      </div>
+    `).join('');
+    faqList.querySelectorAll('.faq-item').forEach(item => {
+      item.querySelector('.faq-q').addEventListener('click', () => {
+        const open = item.classList.toggle('open');
+        item.querySelector('.faq-q').setAttribute('aria-expanded', String(open));
+      });
+    });
+
+    // Partner groups
+    document.getElementById('partnerGroups').innerHTML = partnerGroups.map(g => `
+      <div class="partner-group reveal">
+        <h4>${esc(g.title)}</h4>
+        <div class="partner-wrap">${g.partners.map(p => `<span class="pill">${esc(p)}</span>`).join('')}</div>
+      </div>
+    `).join('');
+
+    // ============== Reveal on scroll ==============
+    const io = new IntersectionObserver((entries) => {
+      entries.forEach(e => {
+        if (e.isIntersecting) {
+          e.target.classList.add('visible');
+          io.unobserve(e.target);
+        }
+      });
+    }, { rootMargin: '-60px' });
+    document.querySelectorAll('.reveal').forEach(el => io.observe(el));
+  </script>
+</body>
+</html>
