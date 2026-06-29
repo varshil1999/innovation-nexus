@@ -56,14 +56,11 @@ export function Awards() {
             }`}
           >
             {a.featured && (
-              <div
-                className="pointer-events-none absolute inset-x-0 top-0 h-px"
-                style={{ background: "linear-gradient(90deg, transparent, var(--electric), transparent)" }}
-              />
+              <div className="pointer-events-none absolute inset-x-0 top-0 h-px bg-primary/70" />
             )}
             <div className="text-5xl">{a.medal}</div>
-            <h3 className="mt-4 font-display text-2xl text-foreground">{a.place}</h3>
-            <div className="mt-3 font-display text-5xl tracking-tight text-primary">{a.amount}</div>
+            <h3 className="mt-4 font-display text-xl font-semibold text-foreground">{a.place}</h3>
+            <div className="mt-3 font-display text-5xl font-extrabold tracking-tight text-primary">{a.amount}</div>
             <ul className="mt-6 space-y-2">
               {a.perks.map((p) => (
                 <li key={p} className="flex items-start gap-2 text-sm text-muted-foreground">

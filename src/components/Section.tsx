@@ -21,12 +21,12 @@ export function SectionHeader({
       className={`max-w-3xl ${align === "center" ? "mx-auto text-center" : ""}`}
     >
       {eyebrow && (
-        <div className="mb-5 inline-flex items-center gap-2 rounded-full border border-border bg-white/5 px-3 py-1 text-xs uppercase tracking-[0.18em] text-muted-foreground">
-          <span className="size-1.5 rounded-full bg-primary shadow-[0_0_12px_var(--electric)]" />
+        <div className="eyebrow mb-5 inline-flex items-center gap-2">
+          <span className="size-1.5 rounded-full bg-primary" />
           {eyebrow}
         </div>
       )}
-      <h2 className="font-display text-4xl leading-[1.05] tracking-tight text-foreground sm:text-5xl md:text-6xl">
+      <h2 className="font-display text-3xl font-bold leading-[1.1] tracking-tight text-foreground sm:text-4xl md:text-5xl">
         {title}
       </h2>
       {intro && <p className="mt-6 text-lg leading-relaxed text-muted-foreground">{intro}</p>}

@@ -31,10 +31,9 @@ export function Hero() {
           initial={{ opacity: 0, y: 18 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 0.05, ease: [0.22, 1, 0.36, 1] }}
-          className="font-display text-[clamp(3rem,9vw,8rem)] leading-[0.95] tracking-tight"
+          className="font-display text-[clamp(2.75rem,8.5vw,7rem)] font-extrabold leading-[1.02] tracking-tight text-foreground"
         >
-          <span className="text-primary">Now or Never</span>
-          <span className="mt-1 block italic text-foreground/90">Hack</span>
+          Now or Never <span className="text-primary">Hack</span>
         </motion.h1>
 
         <motion.p
