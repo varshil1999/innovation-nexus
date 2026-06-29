@@ -18,9 +18,15 @@ export function FinalCTA() {
         }}
       >
         <div className="tis-grid absolute inset-0 -z-10 opacity-50" aria-hidden />
-        <div className="text-xs uppercase tracking-[0.22em] text-primary">Now or Never Hack</div>
-        <h2 className="mx-auto mt-6 max-w-3xl font-display text-5xl leading-[1.05] tracking-tight text-foreground sm:text-6xl md:text-7xl">
-          The registration window is <span className="italic text-primary">open.</span>
+        <div aria-hidden className="pointer-events-none absolute -left-8 -top-8 -z-10 size-32 rounded-full bg-foreground" />
+        <div aria-hidden className="pointer-events-none absolute -right-10 -bottom-10 -z-10 size-40 rounded-full bg-primary" />
+        <div className="text-xs uppercase tracking-[0.22em] text-primary font-semibold">Now or Never Hack</div>
+        <h2 className="mx-auto mt-6 max-w-3xl font-display text-5xl font-black uppercase leading-[1.0] tracking-tight text-foreground sm:text-6xl md:text-7xl">
+          The registration window is{" "}
+          <span className="relative inline-block">
+            <span className="relative z-10">open.</span>
+            <span aria-hidden className="absolute inset-x-0 bottom-1 -z-0 h-[0.3em] bg-primary" />
+          </span>
         </h2>
         <p className="mx-auto mt-6 max-w-xl text-lg text-muted-foreground">
           Limited seats. The problems are not waiting. Neither should you.
@@ -30,8 +36,9 @@ export function FinalCTA() {
             href={REGISTER_URL}
             target="_blank"
             rel="noreferrer"
-            className="group inline-flex items-center gap-2 rounded-full bg-primary px-8 py-4 text-base font-medium text-primary-foreground shadow-[0_20px_60px_-20px_rgba(0,0,0,0.5)] transition-transform hover:scale-[1.02]"
+            className="group inline-flex items-center gap-2 rounded-full bg-primary px-8 py-4 text-base font-bold uppercase tracking-wide text-primary-foreground shadow-[0_12px_30px_-10px_rgba(0,0,0,0.4)] transition-transform hover:scale-[1.03]"
           >
+
             Register Now — ₹250
             <ArrowRight className="size-4 transition-transform group-hover:translate-x-0.5" />
           </a>

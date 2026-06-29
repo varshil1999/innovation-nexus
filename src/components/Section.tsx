@@ -26,9 +26,10 @@ export function SectionHeader({
           {eyebrow}
         </div>
       )}
-      <h2 className="font-display text-3xl font-bold leading-[1.1] tracking-tight text-foreground sm:text-4xl md:text-5xl">
+      <h2 className="font-display text-3xl font-black uppercase leading-[1.05] tracking-tight text-foreground sm:text-4xl md:text-5xl">
         {title}
       </h2>
+
       {intro && <p className="mt-6 text-lg leading-relaxed text-muted-foreground">{intro}</p>}
     </motion.div>
   );
