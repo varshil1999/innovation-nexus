@@ -37,7 +37,7 @@ export function Awards() {
     <Section id="awards">
       <SectionHeader
         eyebrow="Recognition"
-        title={<>Recognition that <em className="font-display italic text-primary">goes beyond.</em></>}
+        title={<>Recognition that <span className="text-primary font-semibold">goes beyond.</span></>}
         intro="Cash prizes. Internship opportunities. Certificates."
       />
 
@@ -51,8 +51,8 @@ export function Awards() {
             transition={{ duration: 0.6, delay: i * 0.1 }}
             className={`relative overflow-hidden rounded-3xl p-8 ${
               a.featured
-                ? "glass glow-ring lg:scale-[1.03]"
-                : "glass"
+                ? "surface shadow-[0_20px_60px_-20px_rgba(0,0,0,0.5)] lg:scale-[1.03]"
+                : "surface"
             }`}
           >
             {a.featured && (
@@ -63,7 +63,7 @@ export function Awards() {
             )}
             <div className="text-5xl">{a.medal}</div>
             <h3 className="mt-4 font-display text-2xl text-foreground">{a.place}</h3>
-            <div className="mt-3 font-display text-5xl tracking-tight text-gradient">{a.amount}</div>
+            <div className="mt-3 font-display text-5xl tracking-tight text-primary">{a.amount}</div>
             <ul className="mt-6 space-y-2">
               {a.perks.map((p) => (
                 <li key={p} className="flex items-start gap-2 text-sm text-muted-foreground">
@@ -89,7 +89,7 @@ export function Awards() {
       <div id="judging" className="mt-32 scroll-mt-24">
         <SectionHeader
           eyebrow="How your work is evaluated"
-          title={<>The criteria your submissions are <em className="font-display italic text-primary">judged on.</em></>}
+          title={<>The criteria your submissions are <span className="text-primary font-semibold">judged on.</span></>}
           intro="The jury includes researchers, technologists, and practitioners from our domain partner organisations. They look for evidence that you understood the problem deeply, thought about it originally, and communicated with clarity and conviction."
         />
 
@@ -101,7 +101,7 @@ export function Awards() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, margin: "-60px" }}
               transition={{ duration: 0.5, delay: i * 0.06 }}
-              className="glass rounded-2xl p-6"
+              className="surface rounded-2xl p-6"
             >
               <div className="font-display text-3xl text-primary">0{i + 1}</div>
               <h4 className="mt-3 text-lg font-medium text-foreground">{c.title}</h4>

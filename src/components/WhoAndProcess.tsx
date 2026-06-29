@@ -7,7 +7,7 @@ export function Who() {
     <Section id="who">
       <SectionHeader
         eyebrow="Who this is for"
-        title={<>Built for the <em className="font-display italic text-primary">curious</em>, the rigorous, and the ready.</>}
+        title={<>Built for the <span className="text-primary font-semibold">curious</span>, the rigorous, and the ready.</>}
       />
 
       <div className="mt-12 grid gap-8 lg:grid-cols-2">
@@ -16,7 +16,7 @@ export function Who() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, margin: "-80px" }}
           transition={{ duration: 0.6 }}
-          className="glass rounded-3xl p-8"
+          className="surface rounded-3xl p-8"
         >
           <p className="text-lg leading-relaxed text-foreground/90">
             Now or Never is open to all innovators — whether your tools are code, research, design, policy, or
@@ -42,7 +42,7 @@ export function Who() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, margin: "-80px" }}
           transition={{ duration: 0.6, delay: 0.1 }}
-          className="glass rounded-3xl p-8"
+          className="surface rounded-3xl p-8"
         >
           <p className="text-lg leading-relaxed text-foreground/90">
             A structured programme backed by one of India's foremost research institutions.
@@ -82,7 +82,7 @@ export function Process() {
     <Section id="process">
       <SectionHeader
         eyebrow="The process"
-        title={<>From curious to <em className="font-display italic text-primary">consequential.</em></>}
+        title={<>From curious to <span className="text-primary font-semibold">consequential.</span></>}
       />
 
       <div className="relative mt-16">
@@ -104,14 +104,14 @@ export function Process() {
                 className={`relative flex items-start gap-6 md:grid md:grid-cols-2 md:gap-12 ${right ? "md:[&>*:first-child]:order-2" : ""}`}
               >
                 <div className={`md:flex ${right ? "md:justify-start" : "md:justify-end"}`}>
-                  <div className="glass max-w-md rounded-2xl p-6">
+                  <div className="surface max-w-md rounded-2xl p-6">
                     <div className="text-xs uppercase tracking-[0.18em] text-primary">Step {String(i + 1).padStart(2, "0")}</div>
                     <h3 className="mt-2 font-display text-2xl text-foreground">{s.title}</h3>
                     <p className="mt-2 text-sm leading-relaxed text-muted-foreground">{s.body}</p>
                   </div>
                 </div>
                 <div className="absolute left-0 top-2 md:left-1/2 md:-translate-x-1/2">
-                  <div className="grid size-14 place-items-center rounded-full border border-primary/40 bg-background text-primary glow-ring">
+                  <div className="grid size-14 place-items-center rounded-full border border-primary/40 bg-background text-primary shadow-[0_20px_60px_-20px_rgba(0,0,0,0.5)]">
                     <Icon className="size-5" />
                   </div>
                 </div>

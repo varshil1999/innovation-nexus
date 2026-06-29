@@ -6,7 +6,7 @@ export function Brief() {
     <Section id="about">
       <SectionHeader
         eyebrow="What is this"
-        title={<>One week to build <em className="font-display italic text-primary">something the world actually needs.</em></>}
+        title={<>One week to build <span className="text-primary font-semibold">something the world actually needs.</span></>}
       />
 
       <div className="mt-12 grid gap-10 lg:grid-cols-5">
@@ -52,7 +52,7 @@ export function Brief() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, margin: "-80px" }}
               transition={{ duration: 0.6, delay: i * 0.1 }}
-              className="glass rounded-2xl p-6"
+              className="surface rounded-2xl p-6"
             >
               <div className="text-xs uppercase tracking-[0.18em] text-primary">Organiser</div>
               <h3 className="mt-2 font-display text-2xl text-foreground">{c.title}</h3>

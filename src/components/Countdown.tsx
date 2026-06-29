@@ -27,7 +27,7 @@ export function Countdown() {
   ];
 
   return (
-    <div className="glass inline-flex flex-col gap-3 rounded-2xl px-5 py-4">
+    <div className="surface inline-flex flex-col gap-3 rounded-2xl px-5 py-4">
       <div className="text-xs uppercase tracking-[0.18em] text-muted-foreground">Registration closes in</div>
       <div className="flex items-center gap-3 sm:gap-5">
         {cells.map((c, i) => (
