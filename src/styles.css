@@ -32,49 +32,50 @@
   --color-ring: var(--ring);
   --color-ring-offset-background: var(--background);
 
-  --color-navy: var(--navy);
-  --color-navy-deep: var(--navy-deep);
-  --color-electric: var(--electric);
-  --color-electric-glow: var(--electric-glow);
+  --color-tis-blue: var(--tis-blue);
+  --color-tis-blue-deep: var(--tis-blue-deep);
+  --color-tis-gold: var(--tis-gold);
+  --color-tis-cyan: var(--tis-cyan);
 
-  --font-display: "Instrument Serif", ui-serif, Georgia, serif;
-  --font-sans: "Inter", ui-sans-serif, system-ui, sans-serif;
+  --font-display: "Open Sans", ui-sans-serif, system-ui, sans-serif;
+  --font-sans: "Open Sans", ui-sans-serif, system-ui, sans-serif;
 }
 
 :root {
-  --radius: 0.75rem;
+  --radius: 0.625rem;
 
-  --navy-deep: oklch(0.16 0.03 264);     /* #0B1120 */
-  --navy: oklch(0.22 0.035 263);
-  --electric: oklch(0.58 0.21 263);      /* #2563EB */
-  --electric-glow: oklch(0.72 0.18 250);
+  /* TIS brand palette */
+  --tis-blue-deep: oklch(0.30 0.14 264);   /* deeper royal */
+  --tis-blue: oklch(0.38 0.16 264);        /* TIS royal blue ~ #2A47A8 */
+  --tis-gold: oklch(0.82 0.16 85);         /* TIS warm yellow ~ #F2C24B */
+  --tis-cyan: oklch(0.80 0.13 210);        /* TIS cyan ~ #5CC6E6 */
 
-  --background: oklch(0.16 0.03 264);
-  --foreground: oklch(0.97 0.005 250);
+  --background: oklch(0.32 0.15 264);
+  --foreground: oklch(0.98 0.005 250);
 
-  --card: oklch(0.22 0.035 263 / 60%);
-  --card-foreground: oklch(0.97 0.005 250);
-  --popover: oklch(0.18 0.03 264);
-  --popover-foreground: oklch(0.97 0.005 250);
+  --card: oklch(1 0 0 / 6%);
+  --card-foreground: oklch(0.98 0.005 250);
+  --popover: oklch(0.30 0.14 264);
+  --popover-foreground: oklch(0.98 0.005 250);
 
-  --primary: oklch(0.58 0.21 263);
-  --primary-foreground: oklch(0.99 0 0);
-  --secondary: oklch(0.26 0.04 263);
-  --secondary-foreground: oklch(0.97 0.005 250);
-  --muted: oklch(0.24 0.035 263);
-  --muted-foreground: oklch(0.70 0.02 255);
-  --accent: oklch(0.30 0.06 263);
-  --accent-foreground: oklch(0.97 0.005 250);
+  --primary: oklch(0.82 0.16 85);          /* gold */
+  --primary-foreground: oklch(0.22 0.10 264);
+  --secondary: oklch(1 0 0 / 8%);
+  --secondary-foreground: oklch(0.98 0.005 250);
+  --muted: oklch(1 0 0 / 6%);
+  --muted-foreground: oklch(0.86 0.02 250 / 78%);
+  --accent: oklch(0.80 0.13 210);          /* cyan */
+  --accent-foreground: oklch(0.22 0.10 264);
   --destructive: oklch(0.65 0.22 27);
   --destructive-foreground: oklch(0.99 0 0);
-  --border: oklch(1 0 0 / 10%);
-  --input: oklch(1 0 0 / 12%);
-  --ring: oklch(0.58 0.21 263);
+  --border: oklch(1 0 0 / 14%);
+  --input: oklch(1 0 0 / 14%);
+  --ring: oklch(0.82 0.16 85);
 }
 
 .dark {
-  --background: oklch(0.16 0.03 264);
-  --foreground: oklch(0.97 0.005 250);
+  --background: oklch(0.32 0.15 264);
+  --foreground: oklch(0.98 0.005 250);
 }
 
 @layer base {
@@ -84,39 +85,38 @@
     background-color: var(--color-background);
     color: var(--color-foreground);
     font-family: var(--font-sans);
-    font-feature-settings: "ss01", "cv11";
     -webkit-font-smoothing: antialiased;
-    background-image:
-      radial-gradient(ellipse 80% 50% at 50% -10%, oklch(0.58 0.21 263 / 0.18), transparent 60%),
-      radial-gradient(ellipse 60% 50% at 90% 30%, oklch(0.55 0.18 240 / 0.10), transparent 60%);
   }
-  ::selection { background: oklch(0.58 0.21 263 / 0.35); color: white; }
+  h1, h2, h3, h4 {
+    font-family: var(--font-display);
+    letter-spacing: -0.01em;
+  }
+  ::selection { background: var(--tis-gold); color: var(--tis-blue-deep); }
 }
 
-@utility glass {
-  background: linear-gradient(180deg, oklch(1 0 0 / 0.04), oklch(1 0 0 / 0.02));
-  backdrop-filter: blur(14px) saturate(140%);
-  border: 1px solid oklch(1 0 0 / 0.08);
+@utility surface {
+  background: oklch(1 0 0 / 0.05);
+  border: 1px solid oklch(1 0 0 / 0.12);
+  backdrop-filter: blur(8px);
 }
 
-@utility text-gradient {
-  background: linear-gradient(135deg, oklch(0.97 0.005 250), oklch(0.72 0.18 250) 60%, oklch(0.58 0.21 263));
-  -webkit-background-clip: text;
-  background-clip: text;
-  color: transparent;
+@utility surface-strong {
+  background: oklch(1 0 0 / 0.08);
+  border: 1px solid oklch(1 0 0 / 0.16);
 }
 
-@utility glow-ring {
-  box-shadow:
-    0 0 0 1px oklch(1 0 0 / 0.08),
-    0 20px 60px -20px oklch(0.58 0.21 263 / 0.45),
-    0 0 80px -20px oklch(0.58 0.21 263 / 0.35);
+@utility eyebrow {
+  font-size: 0.72rem;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  font-weight: 600;
+  color: var(--tis-gold);
 }
 
-@utility grid-bg {
+@utility tis-grid {
   background-image:
-    linear-gradient(oklch(1 0 0 / 0.04) 1px, transparent 1px),
-    linear-gradient(90deg, oklch(1 0 0 / 0.04) 1px, transparent 1px);
-  background-size: 56px 56px;
-  mask-image: radial-gradient(ellipse 70% 60% at 50% 30%, black, transparent 80%);
+    linear-gradient(oklch(1 0 0 / 0.05) 1px, transparent 1px),
+    linear-gradient(90deg, oklch(1 0 0 / 0.05) 1px, transparent 1px);
+  background-size: 64px 64px;
+  mask-image: radial-gradient(ellipse 60% 50% at 50% 20%, black, transparent 75%);
 }
