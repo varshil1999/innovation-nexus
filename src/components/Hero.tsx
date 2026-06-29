@@ -23,7 +23,7 @@ export function Hero() {
           transition={{ duration: 0.6 }}
           className="mb-8 inline-flex items-center gap-2 rounded-full border border-border bg-white/5 px-4 py-1.5 text-xs uppercase tracking-[0.2em] text-muted-foreground backdrop-blur"
         >
-          <span className="size-1.5 rounded-full bg-primary shadow-[0_0_12px_var(--electric)]" />
+          <span className="size-1.5 rounded-full bg-primary shadow-[0_0_12px_var(--tis-gold)]" />
           TIS × Artpark IISc Present
         </motion.div>
 
