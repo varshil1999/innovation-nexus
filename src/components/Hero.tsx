@@ -7,13 +7,19 @@ export function Hero() {
   return (
     <section id="top" className="relative overflow-hidden px-6 pt-36 pb-24 sm:pt-44 sm:pb-32">
       <div className="tis-grid absolute inset-0 -z-10" aria-hidden />
+
+      {/* Playful decorative blobs — CreatED-style */}
       <div
-        className="absolute left-1/2 top-0 -z-10 h-[600px] w-[1200px] -translate-x-1/2 rounded-full opacity-60 blur-3xl"
-        style={{
-          background:
-            "radial-gradient(ellipse at center, oklch(0.82 0.16 85 / 0.22), transparent 60%)",
-        }}
         aria-hidden
+        className="pointer-events-none absolute -left-10 top-32 -z-10 size-40 rounded-full bg-foreground sm:size-56"
+      />
+      <div
+        aria-hidden
+        className="pointer-events-none absolute right-[-3rem] top-1/2 -z-10 size-48 rounded-full bg-primary sm:size-72"
+      />
+      <div
+        aria-hidden
+        className="pointer-events-none absolute left-1/3 bottom-8 -z-10 size-24 rounded-full bg-foreground sm:size-32"
       />
 
       <div className="mx-auto max-w-5xl text-center">
@@ -21,9 +27,9 @@ export function Hero() {
           initial={{ opacity: 0, y: 10 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6 }}
-          className="mb-8 inline-flex items-center gap-2 rounded-full border border-border bg-white/5 px-4 py-1.5 text-xs uppercase tracking-[0.2em] text-muted-foreground backdrop-blur"
+          className="mb-8 inline-flex items-center gap-2 rounded-full border border-border bg-background/80 px-4 py-1.5 text-xs uppercase tracking-[0.2em] text-foreground/70 backdrop-blur"
         >
-          <span className="size-1.5 rounded-full bg-primary shadow-[0_0_12px_var(--tis-gold)]" />
+          <span className="size-1.5 rounded-full bg-primary" />
           TIS × Artpark IISc Present
         </motion.div>
 
@@ -31,9 +37,16 @@ export function Hero() {
           initial={{ opacity: 0, y: 18 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 0.05, ease: [0.22, 1, 0.36, 1] }}
-          className="font-display text-[clamp(2.75rem,8.5vw,7rem)] font-extrabold leading-[1.02] tracking-tight text-foreground"
+          className="font-display text-[clamp(2.75rem,9vw,7.5rem)] font-black uppercase leading-[0.95] tracking-tight text-foreground"
         >
-          Now or Never <span className="text-primary">Hack</span>
+          Now or Never{" "}
+          <span className="relative inline-block">
+            <span className="relative z-10">Hack</span>
+            <span
+              aria-hidden
+              className="absolute inset-x-0 bottom-1 -z-0 h-[0.35em] bg-primary"
+            />
+          </span>
         </motion.h1>
 
         <motion.p
@@ -57,7 +70,7 @@ export function Hero() {
             href={REGISTER_URL}
             target="_blank"
             rel="noreferrer"
-            className="group inline-flex items-center gap-2 rounded-full bg-primary px-7 py-4 text-base font-medium text-primary-foreground shadow-[0_20px_60px_-20px_rgba(0,0,0,0.5)] transition-transform hover:scale-[1.02]"
+            className="group inline-flex items-center gap-2 rounded-full bg-primary px-8 py-4 text-base font-bold uppercase tracking-wide text-primary-foreground shadow-[0_12px_30px_-10px_rgba(0,0,0,0.4)] transition-transform hover:scale-[1.03]"
           >
             Register Now — ₹250
             <ArrowRight className="size-4 transition-transform group-hover:translate-x-0.5" />
@@ -78,5 +91,6 @@ export function Hero() {
         </motion.div>
       </div>
     </section>
+
   );
 }
