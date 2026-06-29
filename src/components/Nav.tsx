@@ -51,7 +51,7 @@ export function Nav() {
             href={REGISTER_URL}
             target="_blank"
             rel="noreferrer"
-            className="ml-2 inline-flex items-center gap-1.5 rounded-full bg-primary px-4 py-2 text-sm font-medium text-primary-foreground shadow-[0_8px_30px_-8px_var(--tis-gold)] transition-transform hover:scale-[1.02]"
+            className="ml-2 inline-flex items-center gap-1.5 rounded-full bg-primary px-5 py-2 text-sm font-bold uppercase tracking-wide text-primary-foreground transition-transform hover:scale-[1.04]"
           >
             Register
           </a>
