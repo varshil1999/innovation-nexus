@@ -37,8 +37,9 @@
   --color-tis-gold: var(--tis-gold);
   --color-tis-cyan: var(--tis-cyan);
 
-  --font-display: "Open Sans", ui-sans-serif, system-ui, sans-serif;
+  --font-display: "Archivo", "Open Sans", ui-sans-serif, system-ui, sans-serif;
   --font-sans: "Open Sans", ui-sans-serif, system-ui, sans-serif;
+
 }
 
 :root {
