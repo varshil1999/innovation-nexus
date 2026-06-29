@@ -44,38 +44,38 @@
 :root {
   --radius: 0.625rem;
 
-  /* TIS brand palette */
-  --tis-blue-deep: oklch(0.30 0.14 264);   /* deeper royal */
-  --tis-blue: oklch(0.38 0.16 264);        /* TIS royal blue ~ #2A47A8 */
-  --tis-gold: oklch(0.82 0.16 85);         /* TIS warm yellow ~ #F2C24B */
-  --tis-cyan: oklch(0.80 0.13 210);        /* TIS cyan ~ #5CC6E6 */
+  /* CreatED-inspired palette */
+  --tis-blue-deep: oklch(0.18 0 0);
+  --tis-blue: oklch(0.22 0 0);
+  --tis-gold: oklch(0.86 0.18 88);         /* CreatED yellow ~ #FFC60B */
+  --tis-cyan: oklch(0.30 0 0);
 
-  --background: oklch(0.32 0.15 264);
-  --foreground: oklch(0.98 0.005 250);
+  --background: oklch(1 0 0);
+  --foreground: oklch(0.18 0 0);
 
-  --card: oklch(1 0 0 / 6%);
-  --card-foreground: oklch(0.98 0.005 250);
-  --popover: oklch(0.30 0.14 264);
-  --popover-foreground: oklch(0.98 0.005 250);
+  --card: oklch(1 0 0);
+  --card-foreground: oklch(0.18 0 0);
+  --popover: oklch(1 0 0);
+  --popover-foreground: oklch(0.18 0 0);
 
-  --primary: oklch(0.82 0.16 85);          /* gold */
-  --primary-foreground: oklch(0.22 0.10 264);
-  --secondary: oklch(1 0 0 / 8%);
-  --secondary-foreground: oklch(0.98 0.005 250);
-  --muted: oklch(1 0 0 / 6%);
-  --muted-foreground: oklch(0.86 0.02 250 / 78%);
-  --accent: oklch(0.80 0.13 210);          /* cyan */
-  --accent-foreground: oklch(0.22 0.10 264);
+  --primary: oklch(0.86 0.18 88);          /* gold */
+  --primary-foreground: oklch(0.18 0 0);
+  --secondary: oklch(0 0 0 / 5%);
+  --secondary-foreground: oklch(0.18 0 0);
+  --muted: oklch(0 0 0 / 4%);
+  --muted-foreground: oklch(0.18 0 0 / 65%);
+  --accent: oklch(0.18 0 0);
+  --accent-foreground: oklch(1 0 0);
   --destructive: oklch(0.65 0.22 27);
   --destructive-foreground: oklch(0.99 0 0);
-  --border: oklch(1 0 0 / 14%);
-  --input: oklch(1 0 0 / 14%);
-  --ring: oklch(0.82 0.16 85);
+  --border: oklch(0 0 0 / 12%);
+  --input: oklch(0 0 0 / 14%);
+  --ring: oklch(0.86 0.18 88);
 }
 
 .dark {
-  --background: oklch(0.32 0.15 264);
-  --foreground: oklch(0.98 0.005 250);
+  --background: oklch(1 0 0);
+  --foreground: oklch(0.18 0 0);
 }
 
 @layer base {
@@ -95,14 +95,14 @@
 }
 
 @utility surface {
-  background: oklch(1 0 0 / 0.05);
-  border: 1px solid oklch(1 0 0 / 0.12);
+  background: oklch(0 0 0 / 0.05);
+  border: 1px solid oklch(0 0 0 / 0.12);
   backdrop-filter: blur(8px);
 }
 
 @utility surface-strong {
-  background: oklch(1 0 0 / 0.08);
-  border: 1px solid oklch(1 0 0 / 0.16);
+  background: oklch(0 0 0 / 0.08);
+  border: 1px solid oklch(0 0 0 / 0.16);
 }
 
 @utility eyebrow {
@@ -115,8 +115,8 @@
 
 @utility tis-grid {
   background-image:
-    linear-gradient(oklch(1 0 0 / 0.05) 1px, transparent 1px),
-    linear-gradient(90deg, oklch(1 0 0 / 0.05) 1px, transparent 1px);
+    linear-gradient(oklch(0 0 0 / 0.05) 1px, transparent 1px),
+    linear-gradient(90deg, oklch(0 0 0 / 0.05) 1px, transparent 1px);
   background-size: 64px 64px;
   mask-image: radial-gradient(ellipse 60% 50% at 50% 20%, black, transparent 75%);
 }
