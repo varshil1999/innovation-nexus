@@ -14,7 +14,7 @@ export function FinalCTA() {
         className="relative overflow-hidden rounded-[2rem] border border-border p-10 text-center sm:p-20"
         style={{
           background:
-            "radial-gradient(ellipse at 50% 0%, oklch(0.58 0.21 263 / 0.35), transparent 60%), linear-gradient(180deg, oklch(0.22 0.04 263 / 0.6), oklch(0.18 0.03 263 / 0.4))",
+            "radial-gradient(ellipse at 50% 0%, oklch(0.82 0.16 85 / 0.22), transparent 60%), linear-gradient(180deg, oklch(1 0 0 / 0.05), oklch(1 0 0 / 0.02))",
         }}
       >
         <div className="tis-grid absolute inset-0 -z-10 opacity-50" aria-hidden />

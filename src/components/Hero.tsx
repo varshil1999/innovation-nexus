@@ -11,7 +11,7 @@ export function Hero() {
         className="absolute left-1/2 top-0 -z-10 h-[600px] w-[1200px] -translate-x-1/2 rounded-full opacity-60 blur-3xl"
         style={{
           background:
-            "radial-gradient(ellipse at center, oklch(0.58 0.21 263 / 0.35), transparent 60%)",
+            "radial-gradient(ellipse at center, oklch(0.82 0.16 85 / 0.22), transparent 60%)",
         }}
         aria-hidden
       />
