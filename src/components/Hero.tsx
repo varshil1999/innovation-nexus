@@ -5,7 +5,7 @@ import { Countdown } from "./Countdown";
 
 export function Hero() {
   return (
-    <section id="top" className="relative overflow-hidden px-6 pt-36 pb-24 sm:pt-44 sm:pb-32">
+    <section id="top" className="relative overflow-hidden px-6 pt-28 pb-16 sm:pt-36 sm:pb-24">
       <div className="tis-grid absolute inset-0 -z-10" aria-hidden />
 
       {/* Playful decorative blobs — CreatED-style */}
@@ -55,9 +55,8 @@ export function Hero() {
           transition={{ duration: 0.8, delay: 0.18 }}
           className="mx-auto mt-8 max-w-2xl text-balance text-lg leading-relaxed text-muted-foreground sm:text-xl"
         >
-          The problems that define our era — in health, in technology, in the natural world — demand attention now.
-          A national individual hackathon for students ready to think at the scale of the world's most urgent
-          challenges, and build something that matters.
+          The problems that define our era — in health, technology, and the natural world — demand attention now.
+          A national individual hackathon for students ready to build something that matters.
         </motion.p>
 
         <motion.div

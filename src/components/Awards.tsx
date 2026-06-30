@@ -25,11 +25,11 @@ const awards = [
 ];
 
 const criteria = [
-  { title: "Depth of Insight", body: "Did you go beyond the surface? Evidence of research, original thinking, and genuine engagement with the complexity of the domain." },
-  { title: "Originality", body: "A genuinely new way of thinking about the challenge — approaching a problem from an angle that creates real value." },
-  { title: "Feasibility", body: "Could this actually work? Grounded in reality, with a clear understanding of constraints, costs, and risks." },
-  { title: "Product", body: "Evidence of the work — a prototype, demo, designed system, or tested model. The idea is taken beyond thinking and into making." },
-  { title: "Communication", body: "Rigour without communication is invisible. Both submission and presentation are evaluated for clarity and conviction." },
+  { title: "Depth of Insight", body: "Beyond surface-level: research, original thinking, real engagement." },
+  { title: "Originality", body: "A genuinely new angle that creates real value." },
+  { title: "Feasibility", body: "Grounded in reality — constraints, costs, risks understood." },
+  { title: "Product", body: "Evidence of work — prototype, demo, designed system, or model." },
+  { title: "Communication", body: "Clarity and conviction in submission and presentation." },
 ];
 
 export function Awards() {
@@ -83,11 +83,11 @@ export function Awards() {
         Every participant who submits receives a joint certificate from <span className="font-medium">The Innovation Story</span> and <span className="font-medium">Artpark IISc Bengaluru</span>.
       </motion.div>
 
-      <div id="judging" className="mt-32 scroll-mt-24">
+      <div id="judging" className="mt-20 scroll-mt-24">
         <SectionHeader
-          eyebrow="How your work is evaluated"
-          title={<>The criteria your submissions are <span className="text-primary font-semibold">judged on.</span></>}
-          intro="The jury includes researchers, technologists, and practitioners from our domain partner organisations. They look for evidence that you understood the problem deeply, thought about it originally, and communicated with clarity and conviction."
+          eyebrow="Judging criteria"
+          title={<>How your work is <span className="text-primary font-semibold">evaluated.</span></>}
+          intro="Researchers, technologists, and practitioners from our partner organisations look for depth, originality, and clarity."
         />
 
         <div className="mt-12 grid gap-4 md:grid-cols-2 lg:grid-cols-3">
@@ -98,7 +98,7 @@ export function Awards() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, margin: "-60px" }}
               transition={{ duration: 0.5, delay: i * 0.06 }}
-              className="surface rounded-2xl p-6"
+              className="surface rounded-2xl p-6 transition-transform hover:-translate-y-1"
             >
               <div className="font-display text-3xl text-primary">0{i + 1}</div>
               <h4 className="mt-3 text-lg font-medium text-foreground">{c.title}</h4>
