@@ -8,10 +8,10 @@ export function Footer() {
     <footer className="border-t border-border px-6 py-14">
       <div className="mx-auto flex max-w-7xl flex-col gap-10 sm:flex-row sm:items-end sm:justify-between">
         <div>
-          <div className="flex items-center gap-3">
-            <img src={tisLogo.url} alt="The Innovation Story" className="h-12 w-12 rounded-md object-contain" />
-            <span className="text-muted-foreground">×</span>
-            <img src={artparkLogo.url} alt="Artpark IISc Bengaluru" className="h-12 w-12 rounded-md object-contain" />
+          <div className="flex items-center gap-4">
+            <img src={tisLogo.url} alt="The Innovation Story" className="h-16 w-16 rounded-md object-contain" />
+            <span className="text-muted-foreground text-xl">×</span>
+            <img src={artparkLogo.url} alt="Artpark IISc Bengaluru" className="h-16 w-16 rounded-md object-contain" />
           </div>
           <div className="mt-5 text-xs uppercase tracking-[0.22em] text-muted-foreground">
             The Innovation Story × Artpark IISc Bengaluru
