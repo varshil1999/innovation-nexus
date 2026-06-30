@@ -85,13 +85,13 @@ export function Process() {
         title={<>From curious to <span className="text-primary font-semibold">consequential.</span></>}
       />
 
-      <div className="relative mt-14">
-        {/* timeline rail — left on mobile, centered on desktop */}
+      <div className="relative mx-auto mt-12 max-w-5xl">
+        {/* timeline rail */}
         <div
-          className="pointer-events-none absolute top-0 bottom-0 w-px bg-gradient-to-b from-primary/60 via-primary/25 to-transparent left-[27px] md:left-1/2"
+          className="pointer-events-none absolute top-2 bottom-2 w-px bg-gradient-to-b from-primary/60 via-primary/25 to-transparent left-[27px] md:left-1/2 md:-translate-x-1/2"
           aria-hidden
         />
-        <ol className="space-y-8 md:space-y-12">
+        <ol className="space-y-6 md:space-y-10">
           {steps.map((s, i) => {
             const Icon = s.icon;
             const right = i % 2 === 1; // zigzag on desktop only
@@ -102,29 +102,29 @@ export function Process() {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true, margin: "-60px" }}
                 transition={{ duration: 0.5, delay: i * 0.04 }}
-                className="relative"
+                className="relative min-h-[4rem]"
               >
-                {/* step marker — sits on the rail */}
-                <div className="absolute left-0 top-1 md:left-1/2 md:-translate-x-1/2">
-                  <div className="grid size-14 place-items-center rounded-full border border-primary/40 bg-background text-primary shadow-[0_20px_60px_-20px_rgba(0,0,0,0.5)]">
+                {/* marker on the rail */}
+                <div className="absolute left-0 top-0 md:left-1/2 md:-translate-x-1/2 z-10">
+                  <div className="grid size-14 place-items-center rounded-full border border-primary/50 bg-background text-primary shadow-[0_20px_60px_-20px_rgba(0,0,0,0.5)]">
                     <Icon className="size-5" />
                   </div>
                 </div>
 
-                {/* card — full width on mobile (offset right of marker), half on desktop */}
-                <div className="pl-20 md:grid md:grid-cols-2 md:gap-12 md:pl-0">
-                  <div
-                    className={`${
-                      right ? "md:col-start-2 md:pl-10" : "md:col-start-1 md:pr-10"
-                    }`}
-                  >
-                    <div className="surface rounded-2xl p-6 transition-transform hover:-translate-y-0.5">
-                      <div className="text-[0.7rem] uppercase tracking-[0.18em] text-primary font-semibold">
-                        Step {String(i + 1).padStart(2, "0")}
-                      </div>
-                      <h3 className="mt-1.5 font-display text-2xl font-black uppercase text-foreground">{s.title}</h3>
-                      <p className="mt-2 text-sm leading-relaxed text-muted-foreground">{s.body}</p>
+                {/* card — full width minus marker on mobile, half on desktop */}
+                <div
+                  className={`pl-20 md:w-1/2 md:pl-0 ${
+                    right ? "md:ml-auto md:pl-12" : "md:pr-12"
+                  }`}
+                >
+                  <div className="surface rounded-2xl p-6 transition-transform hover:-translate-y-0.5">
+                    <div className="text-[0.72rem] uppercase tracking-[0.2em] text-primary font-semibold">
+                      Step {String(i + 1).padStart(2, "0")}
                     </div>
+                    <h3 className="mt-1.5 font-display text-2xl font-black uppercase text-foreground sm:text-3xl">
+                      {s.title}
+                    </h3>
+                    <p className="mt-2 text-[0.95rem] leading-relaxed text-muted-foreground">{s.body}</p>
                   </div>
                 </div>
               </motion.li>

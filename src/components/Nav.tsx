@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import { motion } from "framer-motion";
-import { REGISTER_URL } from "@/lib/site";
+import { Instagram, Linkedin } from "lucide-react";
+import { REGISTER_URL, SOCIAL } from "@/lib/site";
 import tisLogo from "@/assets/tis-logo.svg.asset.json";
 import artparkLogo from "@/assets/artpark-logo.svg.asset.json";
 
@@ -37,10 +38,10 @@ export function Nav() {
     >
       <div className="mx-auto grid max-w-7xl grid-cols-[minmax(0,1fr)_auto] items-center gap-4 px-6 py-3">
         <a href="#top" className="flex min-w-0 items-center gap-3">
-          <img src={tisLogo.url} alt="The Innovation Story" className="h-9 w-9 shrink-0 rounded-md object-contain" />
-          <span className="text-muted-foreground">×</span>
-          <img src={artparkLogo.url} alt="Artpark IISc Bengaluru" className="h-9 w-9 shrink-0 rounded-md object-contain" />
-          <span className="ml-1 hidden truncate text-sm font-semibold tracking-tight text-foreground lg:inline">
+          <img src={tisLogo.url} alt="The Innovation Story" className="h-12 w-12 shrink-0 rounded-md object-contain sm:h-14 sm:w-14" />
+          <span className="text-muted-foreground text-lg">×</span>
+          <img src={artparkLogo.url} alt="Artpark IISc Bengaluru" className="h-12 w-12 shrink-0 rounded-md object-contain sm:h-14 sm:w-14" />
+          <span className="ml-2 hidden truncate text-base font-bold uppercase tracking-tight text-foreground xl:inline">
             Now or Never Hack
           </span>
         </a>
@@ -50,16 +51,35 @@ export function Nav() {
             <a
               key={i.href}
               href={i.href}
-              className="rounded-full px-3 py-2 text-sm text-muted-foreground transition-colors hover:bg-foreground/5 hover:text-foreground"
+              className="rounded-full px-3 py-2 text-[0.95rem] text-muted-foreground transition-colors hover:bg-foreground/5 hover:text-foreground"
             >
               {i.label}
             </a>
           ))}
+          <div className="mx-2 h-6 w-px bg-border" />
+          <a
+            href={SOCIAL.instagram}
+            target="_blank"
+            rel="noreferrer"
+            aria-label="Instagram"
+            className="grid size-9 place-items-center rounded-full text-muted-foreground transition-colors hover:bg-foreground/5 hover:text-foreground"
+          >
+            <Instagram className="size-4" />
+          </a>
+          <a
+            href={SOCIAL.linkedin}
+            target="_blank"
+            rel="noreferrer"
+            aria-label="LinkedIn"
+            className="grid size-9 place-items-center rounded-full text-muted-foreground transition-colors hover:bg-foreground/5 hover:text-foreground"
+          >
+            <Linkedin className="size-4" />
+          </a>
           <a
             href={REGISTER_URL}
             target="_blank"
             rel="noreferrer"
-            className="ml-2 inline-flex items-center gap-1.5 rounded-full bg-primary px-5 py-2 text-sm font-bold uppercase tracking-wide text-primary-foreground transition-transform hover:scale-[1.04]"
+            className="ml-2 inline-flex items-center gap-1.5 rounded-full bg-primary px-5 py-2.5 text-sm font-bold uppercase tracking-wide text-primary-foreground transition-transform hover:scale-[1.04]"
           >
             Register
           </a>
@@ -85,14 +105,22 @@ export function Nav() {
               </a>
             ))}
           </div>
-          <a
-            href={REGISTER_URL}
-            target="_blank"
-            rel="noreferrer"
-            className="mt-3 inline-flex w-full justify-center rounded-full bg-primary px-4 py-3 text-sm font-bold uppercase tracking-wide text-primary-foreground"
-          >
-            Register — ₹250
-          </a>
+          <div className="mt-3 flex items-center gap-3">
+            <a href={SOCIAL.instagram} target="_blank" rel="noreferrer" aria-label="Instagram" className="grid size-10 place-items-center rounded-full border border-border text-foreground">
+              <Instagram className="size-4" />
+            </a>
+            <a href={SOCIAL.linkedin} target="_blank" rel="noreferrer" aria-label="LinkedIn" className="grid size-10 place-items-center rounded-full border border-border text-foreground">
+              <Linkedin className="size-4" />
+            </a>
+            <a
+              href={REGISTER_URL}
+              target="_blank"
+              rel="noreferrer"
+              className="ml-auto inline-flex justify-center rounded-full bg-primary px-5 py-3 text-sm font-bold uppercase tracking-wide text-primary-foreground"
+            >
+              Register — ₹250
+            </a>
+          </div>
         </div>
       )}
     </motion.header>

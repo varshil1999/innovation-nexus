@@ -26,11 +26,11 @@ export function SectionHeader({
           {eyebrow}
         </div>
       )}
-      <h2 className="font-display text-3xl font-black uppercase leading-[1.05] tracking-tight text-foreground sm:text-4xl md:text-5xl">
+      <h2 className="font-display text-4xl font-black uppercase leading-[1.05] tracking-tight text-foreground sm:text-5xl md:text-6xl">
         {title}
       </h2>
 
-      {intro && <p className="mt-6 text-lg leading-relaxed text-muted-foreground">{intro}</p>}
+      {intro && <p className="mt-6 text-lg leading-relaxed text-muted-foreground sm:text-xl">{intro}</p>}
     </motion.div>
   );
 }
@@ -45,7 +45,7 @@ export function Section({
   className?: string;
 }) {
   return (
-    <section id={id} className={`relative scroll-mt-24 px-6 py-16 sm:py-24 ${className}`}>
+    <section id={id} className={`relative scroll-mt-24 px-6 py-12 sm:py-16 ${className}`}>
       <div className="mx-auto max-w-7xl">{children}</div>
     </section>
   );
