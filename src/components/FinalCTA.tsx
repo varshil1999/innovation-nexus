@@ -5,7 +5,7 @@ import { Section } from "./Section";
 
 export function FinalCTA() {
   return (
-    <Section id="register" className="py-32 sm:py-40">
+    <Section id="register" className="py-16 sm:py-24">
       <motion.div
         initial={{ opacity: 0, y: 30 }}
         whileInView={{ opacity: 1, y: 0 }}
