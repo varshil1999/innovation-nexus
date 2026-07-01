@@ -5,7 +5,7 @@ import { Countdown } from "./Countdown";
 
 export function Hero() {
   return (
-    <section id="top" className="relative overflow-hidden px-6 pt-28 pb-16 sm:pt-36 sm:pb-24">
+    <section id="top" className="relative overflow-hidden px-6 pt-24 pb-10 sm:pt-32 sm:pb-16">
       <div className="tis-grid absolute inset-0 -z-10" aria-hidden />
 
       {/* Playful decorative blobs — CreatED-style */}
